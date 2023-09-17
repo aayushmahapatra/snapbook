@@ -71,20 +71,39 @@ const Auth = () => {
               </div>
               {newUser ? (
                 <>
-                  <p onClick={() => setNewUser(false)}>
-                    Already have an account? Signin.
-                  </p>
-                  <button disabled={loading} onClick={handleSignup}>
+                  <button
+                    disabled={loading}
+                    onClick={handleSignup}
+                    className="bg-violet-700 text-white py-1 px-6 rounded font-semibold w-full mb-4 flex justify-center items-center"
+                  >
+                    {loading && (
+                      <div
+                        className="h-3 w-3 mr-2 animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite] text-white"
+                        role="status"
+                      />
+                    )}
                     Sign Up
                   </button>
+                  <p
+                    className="text-xs cursor-pointer text-center"
+                    onClick={() => setNewUser(false)}
+                  >
+                    Already have an account? Signin.
+                  </p>
                 </>
               ) : (
                 <>
                   <button
                     disabled={loading}
                     onClick={handleSignin}
-                    className="bg-violet-700 text-white py-1 px-6 rounded font-semibold w-full mb-4"
+                    className="bg-violet-700 text-white py-1 px-6 rounded font-semibold w-full mb-4 flex justify-center items-center"
                   >
+                    {loading && (
+                      <div
+                        className="h-3 w-3 mr-2 animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite] text-white"
+                        role="status"
+                      />
+                    )}
                     Sign In
                   </button>
                   <p

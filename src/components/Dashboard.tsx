@@ -30,7 +30,7 @@ const Dashboard: FC<IDashboard> = ({
 
   const handleDelete = async (id: string) => {
     await deleteData(id);
-    setShowModal(false);
+    window.location.reload();
   };
 
   const handleOnEdit = (item: any) => {
@@ -55,18 +55,19 @@ const Dashboard: FC<IDashboard> = ({
                   className="mb-4 rounded h-80 mx-auto"
                 />
                 <div className="flex absolute top-2 right-2">
-                  <div
+                  <button
                     className="text-black bg-gray-100 opacity-50 cursor-pointer rounded py-1 px-4 mr-2 text-sm hover:bg-violet-700 hover:text-white hover:opacity-100"
                     onClick={() => handleOnEdit(item)}
                   >
                     Edit
-                  </div>
-                  <div
+                  </button>
+                  <button
+                    type="submit"
                     className="text-black bg-gray-200 opacity-50 cursor-pointer rounded py-1 px-4 text-sm hover:bg-violet-700 hover:text-white hover:opacity-100"
                     onClick={() => handleDelete(item.id)}
                   >
                     Delete
-                  </div>
+                  </button>
                 </div>
               </div>
               <div className="font-bold text-center">{item.name}</div>
