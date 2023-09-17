@@ -30,6 +30,7 @@ const Dashboard: FC<IDashboard> = ({
 
   const handleDelete = async (id: string) => {
     await deleteData(id);
+    setShowModal(false);
   };
 
   const handleOnEdit = (item: any) => {
